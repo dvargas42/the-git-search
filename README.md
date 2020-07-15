@@ -13,7 +13,7 @@ O objetivo é construir um sistema de consulta por usuário do github e mostrand
 
 ## Fluxo das telas
 
-Na Pagina principal teremos um header com um campo de busca, apos o usuario digitar e buscar, dever preenchido com o resultado da busca e uma listagem com os usuários, no card do usuário tera um botão de ver mais, apos clicar devera abrir um modal com algumas infos do usuário.
+Na Pagina principal teremos um header com um campo de busca, apos o usuario digitar e buscar, deve ser preenchido com o resultado da busca e uma listagem com os usuários, no card do usuário tera um botão de ver mais, apos clicar devera abrir um modal com algumas infos do usuário.
 
 ## Modelo de Layout
 
