@@ -1,4 +1,4 @@
-# Desafio para vaga de Estagiários
+# Desafio para vaga de FrontEnd
 
 Primeiramente, obrigado pelo seu interesse em conosco,
 A seguir você encontrará todos as informações necessárias para fazer seu teste.
