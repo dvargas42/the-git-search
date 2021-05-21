@@ -1,0 +1,31 @@
+.searchBoxContainer {
+  //display: flex;
+  width: 100%;
+  position: relative;
+  align-items: center;
+
+  input {
+    height: 2.25rem;
+    width: 100%;
+    border: 1px solid var(--gray-200);
+    border-radius: 0.25rem;
+    
+  }
+  button {
+    position: absolute;
+    right: 0;
+    font-size: 0;
+    width: 2.25rem;
+    height:2.25rem;
+    border-radius: 0 0.25rem 0.25rem 0;
+    align-items: center;
+    background: var(--purple-400);
+    box-shadow: -2px 0px 4px 0px rgba(0, 0, 0, 0.25);
+
+    img {
+      width: 1.25rem;
+      height: 1.25rem;
+
+    }
+  }
+}
