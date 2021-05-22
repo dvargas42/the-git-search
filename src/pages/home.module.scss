@@ -1,0 +1,11 @@
+.homeContainer {
+  display: flex;
+  height: calc(100vh - 5.75rem);
+  padding: 0 2.5rem;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 730px;
+  }
+}
