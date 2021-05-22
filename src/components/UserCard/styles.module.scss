@@ -1,0 +1,59 @@
+.cardContainer {
+  width: 14.375rem;
+  height: 17.0625rem;
+
+  border-radius: 10px;
+  background: var(--white);
+  box-shadow: 0px 0px 6px rgba(47, 37, 68, 0.25);
+
+  img {
+    width: 100%;
+    height: 130px;
+  }
+}
+
+.cardContent {
+  margin: 0.625rem auto 1.25rem;
+  padding: 0 0.625rem;
+
+  h1 {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--dark-shades)
+  }
+
+  a {
+    margin-top: 0.25rem;
+
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--cyan-900)
+  }
+
+  span {
+    display: block;
+    margin-top: 0.25rem;
+
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--dark-accent)
+  }
+
+  button {
+    width: 100%;
+    height: 2.25rem;
+    margin-top: 1.25rem;
+    border-radius: 2.25rem;
+
+    background: var(--purple-500);
+    color: var(--white);
+
+    transition-duration: 0.2s;
+
+    &:hover {
+      background-color: var(--purple-900);
+    }
+
+
+  }
+}
