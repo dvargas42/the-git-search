@@ -1,0 +1,37 @@
+.resultsContainer {
+  display: flex;
+  height: calc(100vh - 5.75rem);
+  overflow-y: scroll;
+  padding: 0 2.5rem;
+  background-image: url('/images/Background.svg');
+}
+
+.resultsContent {
+  margin: 2.5rem auto 0;
+
+  .space {
+    height: 2.5rem;
+  }
+}
+
+.userList {
+  margin-top: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.25rem;
+  list-style: none;
+}
+
+.title {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: justify;
+  border-bottom: 1px solid var(--gray-100);
+
+  h1 {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--dark-shades);
+  }
+}
