@@ -1,5 +1,4 @@
 .searchBoxContainer {
-  //display: flex;
   width: 100%;
   position: relative;
   align-items: center;
@@ -7,10 +6,15 @@
   input {
     height: 2.25rem;
     width: 100%;
+    padding:0.6875rem;
     border: 1px solid var(--gray-200);
     border-radius: 0.25rem;
-    
+
+    &::placeholder {
+      color: var(--light-accent);
+    }
   }
+
   button {
     position: absolute;
     right: 0;
@@ -25,7 +29,8 @@
     img {
       width: 1.25rem;
       height: 1.25rem;
-
     }
+
+    
   }
 }
