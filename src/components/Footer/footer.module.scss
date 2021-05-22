@@ -1,0 +1,18 @@
+.footerContainer {
+  display: flex;
+  height: 2.25rem;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--white);
+  box-shadow: 0px -4px 4px 0px rgba(47, 37, 68, 0.15);
+
+
+  h1 {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--dark-accent);
+
+  }
+}
