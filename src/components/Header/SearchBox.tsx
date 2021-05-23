@@ -1,16 +1,18 @@
 import { useState } from 'react'
 import Link from 'next/link'
+import { useSearchData } from '../../hooks/useSearchData'
 
 import styles from './searchBox.module.scss'
-import { useSearchData } from '../../hooks/useSearchData'
 
 export function SearchBox() {
   const { handleSearch } = useSearchData()
-  const [search, setSearch] = useState<string>()
+  const [search, setSearch] = useState<string>('')
 
   function handleSearchInput() {
-    handleSearch(search)
-    setSearch('')
+    if (search) {
+      handleSearch(search)
+      setSearch('')
+    }
   }
 
   return (
@@ -21,7 +23,7 @@ export function SearchBox() {
         value={search}
         onChange={event => setSearch(event.target.value)}
       />
-      <Link href={`/results/${search}`}>
+      <Link href={search ? `/results/${search}`: ''}>
         <button
           type='button'
           onClick={handleSearchInput}
