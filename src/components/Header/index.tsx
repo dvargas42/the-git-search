@@ -1,6 +1,8 @@
 import Link from 'next/link'
-import styles from './header.module.scss'
+
 import { SearchBox } from './SearchBox'
+
+import styles from './header.module.scss'
 
 export function Header() {
   return (
