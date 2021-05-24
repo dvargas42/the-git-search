@@ -18,7 +18,7 @@ export function UserCard( {item, index} : ItemData) {
 
   function lengthVerify(field: string) {
     if (field.length > 25) {
-      return (field.slice(0, 23 - field.length ) + '...')
+      return (field.substr(0, 22 ) + '...')
     }
     return field
   }
