@@ -34,6 +34,7 @@
     width: 16.625rem;
     height: 16.625rem;
     border-radius: 0.625rem;
+    object-fit: cover;
   }
 }
 
@@ -71,9 +72,6 @@
     p{
       color: var(--dark-shades);
       margin-bottom: 0.25rem;
-    }
-    span {
-
     }
 
     .right {
