@@ -1,6 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useSearchData } from "../../hooks/useSearchData";
-import FlatList from 'flatlist-react'
 
 import { UserCard } from "../../components/UserCard";
 import { DateFormat, NumberFormat } from '../../utils/format'
@@ -42,7 +41,7 @@ async function SearchData (
 
   const { data }= await api.get(`search/users?q=${search}`,{
     params: {
-      per_page: 12,
+      per_page: 8,
       page,
     }
   })
@@ -71,21 +70,19 @@ async function SearchData (
 }
 
 export default function Results({ data, total_count, search }: DataProps) {
-  const [searchData, setSearchData] = useState<SearchProps[]>()
+  const [searchData, setSearchData] = useState<SearchProps[]>(data)
   const [currentPage, setCurrentPage] = useState(2)
-  const [hasMorePages, setHasMorePages] = useState(true)
   
-  const totalPages = Math.ceil(total_count / 12)
+  const totalPages = Math.ceil(total_count / 8)
   
   useEffect(()=> {
     setSearchData(data)    
   }, [data])
 
-  async function NextPage() {
+  async function handleNextPage() {
     try {
       if (currentPage > totalPages) {
-        setHasMorePages(!hasMorePages)
-        throw('No more pages')
+        throw('Não há mais itens!')
       }
 
       const response = await SearchData(search, currentPage)
@@ -107,25 +104,20 @@ export default function Results({ data, total_count, search }: DataProps) {
           </div>
 
           <ul className={styles.userList}>
-            <FlatList 
-              list={searchData}
-              renderItem={(item:SearchProps, idx: number) => (
-                <UserCard
-                  item={ item }
-                  index={ idx }
-                />
-              )}
-              renderWhenEmpty={() => <div>Items não encontrados</div>}
-              hasMoreItens={true}
-              loadMoreItems={NextPage}
-              paginationLoadingIndicator={<div style={{background: '#090'}}>Getting more items...</div>}
-              //paginationLoadingIndicatorPosition="right"
-            />
+            {searchData.map(item => (
+              <UserCard 
+                key={ item.id }
+                item={ item }
+              />
+            ))}
           </ul>
-          {/* <button
-          onClick={NextPage}>
-            carregar
-          </button> */}
+          <button 
+            type='button'
+            className={styles.loadingButton}
+            onClick={handleNextPage}
+          >
+            MAIS RESULTADOS
+          </button>
         </div>
       </main>
     </>
