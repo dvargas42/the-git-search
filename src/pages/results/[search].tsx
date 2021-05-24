@@ -1,13 +1,15 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useSearchData } from "../../hooks/useSearchData";
-import { api } from '../../services/api'
-import { NumberFormat } from '../../utils/format'
+import FlatList from 'flatlist-react'
 
 import { UserCard } from "../../components/UserCard";
+import { DateFormat, NumberFormat } from '../../utils/format'
+import { api } from '../../services/api'
 
 import styles from './results.module.scss'
 
-interface SearchDataProps {
+interface userProps {
+  id: number;
   login: string;
   avatar_url: string;
   url: string;
@@ -15,7 +17,16 @@ interface SearchDataProps {
   score: number;
 }
 
-export default function Results(searchData: SearchDataProps) {
+interface SearchProps extends userProps {
+  name: string;
+  created_at: string;
+}
+
+interface SearchDataProps {
+  searchData: SearchProps;
+}
+
+export default function Results({ searchData }: SearchDataProps) {
   return (
     <>
       <main className={styles.resultsContainer}>
@@ -26,18 +37,15 @@ export default function Results(searchData: SearchDataProps) {
           </div>
 
           <ul className={styles.userList}>
-            <UserCard />
-            <UserCard />
-            <UserCard />
-            <UserCard />
-            <UserCard />
-            <UserCard />
-            <UserCard />
-            <UserCard />
-            <UserCard />
-            <UserCard />
-            <UserCard />
-            <UserCard />
+            <FlatList 
+              list={searchData}
+              renderItem={(item:SearchProps, idx: number) => (
+                <UserCard
+                  item={ item }
+                  index={ idx }
+                />
+              )}
+            />
           </ul>
 
           <div className={styles.space} />
@@ -55,21 +63,31 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { search } = ctx.params;
 
-  const { data } = await api.get(`/search/users?q=${search}`)
+  const { data  } = await api.get(`search/users?q=${search}`)
 
-  const searchData = data.items.map((user: SearchDataProps) => {
-    return{
-      login: user.login,
-      avatar_url: user.avatar_url,
-      url: user.url,
-      html_url: user.html_url,
-      score: NumberFormat(user.score)
+  const searchData = await Promise.all(data.items.map(
+
+    async (user: userProps) => {
+      const { data } = await api.get(`users/${user.login}`)
+
+      return{
+        id: user.id,
+        name: data.name,
+        login: user.login,
+        avatar_url: user.avatar_url,
+        url: user.url, //
+        html_url: user.html_url,
+        score: NumberFormat(user.score),
+        created_at: DateFormat(data.created_at)
+      }
     }
-  })
+  ))
+
+  console.log(searchData)
 
   return {
     props: {
-      searchData,
+      searchData: searchData
     },
     revalidate: 60 * 60 * 24 // 24 hours
   }
