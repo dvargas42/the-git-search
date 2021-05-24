@@ -10,7 +10,7 @@ export function DateFormat(date: string) {
 }
 
 export function NumberFormat(num: number) {
-  return new Intl.NumberFormat(
+  return num.toLocaleString(
     'pt-BR',
     {
       minimumFractionDigits: 2
