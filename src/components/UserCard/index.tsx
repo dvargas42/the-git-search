@@ -11,10 +11,10 @@ interface ItemData {
     name: string;
     created_at: string;
   }
-  index: number
+  key: number
 }
 
-export function UserCard( {item, index} : ItemData) {
+export function UserCard({ item } : ItemData) {
 
   function lengthVerify(field: string) {
     if (field.length > 25) {
@@ -24,7 +24,7 @@ export function UserCard( {item, index} : ItemData) {
   }
 
   return (
-    <li key={index} className={styles.cardContainer}> 
+    <li className={styles.cardContainer}> 
       <img src={item.avatar_url} alt="avatar" />
 
       <div className={styles.cardContent}>
