@@ -9,7 +9,8 @@ export default function Home() {
         <Head>
           <title>Home | The Git Search</title>
         </Head>
-          <img className={styles.homeContent} src="/images/LogotypeShadow.svg" alt="hero" />
+        
+        <img className={styles.homeContent} src="/images/LogotypeShadow.svg" alt="hero" />
       </main>
     </>
   )
