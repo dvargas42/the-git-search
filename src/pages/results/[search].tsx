@@ -8,6 +8,7 @@ import { UserCard } from "../../components/UserCard";
 import { DateFormat, NumberFormat } from '../../utils/format'
 
 import styles from './results.module.scss'
+import Link from "next/link";
 
 interface userProps {
   id: number;

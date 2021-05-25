@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { useSearchData } from '../../hooks/useSearchData'
 
 import styles from './styles.module.scss'
@@ -52,14 +51,12 @@ export function UserCard({ item, key } : ItemData) {
 
         <span>Score: {item.score}</span>
         
-        <Link href=''>
-          <button
-            type='button'
-            onClick={() => handleUserDetails(item)}
-          >
-            VER MAIS
-          </button>
-        </Link>
+        <button
+          type='button'
+          onClick={() => handleUserDetails(item)}
+        >
+          VER MAIS
+        </button>
       </div>
     </li>
   )
