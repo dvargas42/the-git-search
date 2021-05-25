@@ -51,13 +51,15 @@ export function UserCard({ item, key } : ItemData) {
         <a href={item.html_url}>{item.html_url}</a>
 
         <span>Score: {item.score}</span>
-      
-        <button
-          type='button'
-          onClick={() => handleUserDetails(item)}
-        >
-          VER MAIS
-        </button>
+        
+        <Link href=''>
+          <button
+            type='button'
+            onClick={() => handleUserDetails(item)}
+          >
+            VER MAIS
+          </button>
+        </Link>
       </div>
     </li>
   )
