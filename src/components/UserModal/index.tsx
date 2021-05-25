@@ -1,4 +1,6 @@
+import Link from 'next/link'
 import Modal from 'react-modal'
+import { useSearchData } from '../../hooks/useSearchData'
 
 import styles from './styles.module.scss'
 
@@ -8,6 +10,12 @@ interface UserModalProps {
 } 
 
 export function UserModal({isOpen, onRequestClose }: UserModalProps) {
+  const { userDetails, toggleUserModal } = useSearchData()
+
+  function handleUserModalClose() {
+    toggleUserModal()
+  } 
+
   return (
     <Modal
       isOpen={isOpen}
@@ -15,40 +23,49 @@ export function UserModal({isOpen, onRequestClose }: UserModalProps) {
       className={styles.userModalContainer}
       overlayClassName={styles.userModalOverlay}
     >
-      
-
       <div className={styles.modalContent}>
-        <img src="/images/Avatar.png" alt="Avatar" />
+        <img src={userDetails?.avatar_url } alt="Avatar" />
 
         <div className={styles.userData}>
           <div>
-            <h1>Milena Melo</h1>
+            <h1>
+              {userDetails?.name ? userDetails?.name: userDetails?.login}
+            </h1>
           </div>
 
           <ul>
             <li>
               <p>Username:</p>
-              Milena Melo
+              {userDetails?.login}
             </li>
+
             <li className={styles.right}>
               <p>Seguindo:</p>
-              123
+              {userDetails?.following}
             </li>
+
             <li>
               <p>Cadastrado(a):</p>
-              31/12/2020
+              {userDetails?.created_at}
             </li>
+
             <li className={styles.right}>
               <p>Seguidores:</p>
-              321
+              {userDetails?.followers}
             </li>
             <li>
               <p>URL:</p>
-              <a>http://github.com/MilenaMelo</a>
+
+              <Link href={userDetails?.html_url}>
+                <a>{userDetails?.html_url}</a>
+              </Link>
             </li>
           </ul>
 
-          <button>
+          <button
+            type='button'
+            onClick={handleUserModalClose}
+          >
             FECHAR
           </button>
         </div>
