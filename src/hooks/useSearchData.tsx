@@ -1,11 +1,29 @@
 import { createContext, ReactNode, useContext, useState } from 'react'
 
 interface SearchDataContextProps {
-  search: string;
-  handleSearch: (word: string) => void;
+  request: string;
+  handleRequest: (word: string) => void;
+  isOpenModal: boolean;
+  toggleUserModal: () => void;
+  userDetails: UserDetailsProps;
+  handleUser:(user: UserDetailsProps) => void;
 }
+
 interface SearchDataProviderProps {
   children: ReactNode;
+}
+
+interface UserDetailsProps {
+  id: number;
+  login: string;
+  avatar_url: string;
+  url: string;
+  html_url: string;
+  score: number;
+  name: string;
+  created_at: string;
+  followers: number,
+  following: number,
 }
 
 export const SearchDataContext = createContext(
@@ -13,17 +31,32 @@ export const SearchDataContext = createContext(
 )
 
 export function SearchDataProvider({ children }: SearchDataProviderProps) {
-  const [search, setSearch] = useState<string>()
+  const [request, setRequest] = useState<string>()
+  const [isOpenModal, setIsOpenModal] = useState(false)
+  const [userDetails, setUserDetails] = useState<UserDetailsProps>()
 
-  function handleSearch(word: string) {
-    setSearch(word)
+  function handleRequest(word: string) {
+    setRequest(word)
+  }
+
+  function toggleUserModal() {
+    console.log(isOpenModal)
+    setIsOpenModal(!isOpenModal)
+  }
+
+  function handleUser(user: UserDetailsProps) {
+    setUserDetails (user)
   }
 
   return (
     <SearchDataContext.Provider
       value={{
-        search,
-        handleSearch,
+        request,
+        handleRequest,
+        isOpenModal,
+        toggleUserModal,
+        handleUser,
+        userDetails,
       }}
     >
       {children}
