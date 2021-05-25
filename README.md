@@ -1,113 +1,122 @@
-# Desafio para vaga de FrontEnd
+<h1 align="center">
+  <img alt="Logo" src="./public/images/Logotype.svg" width="500px">
+</h1>
 
-Primeiramente, obrigado pelo seu interesse em conosco,
-A seguir você encontrará todos as informações necessárias para fazer seu teste.
+<h3 align="center">
+  NextJS Application for GitHub search.
+</h3>
 
-## Stack do projeto
+<p align="center">The best way to search GitHub users!</p>
 
-Você pode utilizar a stack que preferir, JQuery, Angular ou React.
+<p align="center">
+  <a href="#%EF%B8%8F-about-the-project">About the project</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-screnshots">Screenshots</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-getting-started">Getting started</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-how-to-contribute">How to contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#-license">License</a>
+</p>
 
-## Objetivo do desafio
+## 💇🏼 About the project
 
-O objetivo é construir um sistema de consulta por usuário do github e mostrando suas informações.
+This application was part of a challenge to test the ability to implement features
+functions and render information within a ReactJS / NextJS web application.
 
-## Fluxo das telas
+## 📸 Sreenshots
 
-Na Pagina principal teremos um header com um campo de busca, apos o usuario digitar e buscar, deve ser preenchido com o resultado da busca e uma listagem com os usuários, no card do usuário tera um botão de ver mais, apos clicar devera abrir um modal com algumas infos do usuário.
+Images of the application in operation.
 
-## Modelo de Layout
+<p align="center">
+<img alt="Screen01" src="https://res.cloudinary.com/dvargas42/image/upload/v1621917277/thegitsearch/thegitsearch1_jkmjlg.png" width="400px">
+<img alt="Screen02" src="https://res.cloudinary.com/dvargas42/image/upload/v1621917282/thegitsearch/thegitsearch2_dqhl7r.png" width="400px">
+</p>
 
-Você devera seguir o layout do link: https://www.figma.com/file/bAxYmnMBHqmHL9SY6YfDmG/Internship-Test?node-id=14%3A4009
+<p align="center">
+<img alt="Screen03" src="https://res.cloudinary.com/dvargas42/image/upload/v1621917283/thegitsearch/thegitsearch3_nfwswv.png" width="400px">
+<img alt="Screen04" src="https://res.cloudinary.com/dvargas42/image/upload/v1621917282/thegitsearch/thegitsearch4_dyylaq.png" width="400px">
+</p>
 
-## Enpoints e documentação
+<p align="center">
+<img alt="Screen05" src="https://res.cloudinary.com/dvargas42/image/upload/v1621917281/thegitsearch/thegitsearch5_rulsbj.png" width="400px">
+</p>
 
-### Pesquisa
-Documentação Pesquisa: https://developer.github.com/v3/search/#search-users
+## 🚀 Technologies
 
---Endpoint Exemplo: curl https://api.github.com/search/users?q=stolato
---METHOD: GET
+Technologies that I used to develop this app
 
-Retorno:
-```{
-  "total_count": 1,
-  "incomplete_results": false,
-  "items": [
-    {
-      "login": "stolato",
-      "id": 1437461,
-      "node_id": "MDQ6VXNlcjE0Mzc0NjE=",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/1437461?v=4",
-      "gravatar_id": "",
-      "url": "https://api.github.com/users/stolato",
-      "html_url": "https://github.com/stolato",
-      "followers_url": "https://api.github.com/users/stolato/followers",
-      "following_url": "https://api.github.com/users/stolato/following{/other_user}",
-      "gists_url": "https://api.github.com/users/stolato/gists{/gist_id}",
-      "starred_url": "https://api.github.com/users/stolato/starred{/owner}{/repo}",
-      "subscriptions_url": "https://api.github.com/users/stolato/subscriptions",
-      "organizations_url": "https://api.github.com/users/stolato/orgs",
-      "repos_url": "https://api.github.com/users/stolato/repos",
-      "events_url": "https://api.github.com/users/stolato/events{/privacy}",
-      "received_events_url": "https://api.github.com/users/stolato/received_events",
-      "type": "User",
-      "site_admin": false,
-      "score": 1.0
-    }
-  ]
-}
+
+- [React](https://reactjs.org/)
+- [Next](https://nextjs.org/)
+- [Node.js](https://nodejs.org/en/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Sass](https://sass-lang.com/)
+- [Axios](https://github.com/axios/axios)
+- [Date FNS](https://date-fns.org/docs/Getting-Started)
+- [React Modal](https://github.com/reactjs/react-modal#api-documentation)
+
+## 💻 Getting started
+
+### Requirements
+
+- [Node.js](https://nodejs.org/en/)
+- [Yarn](https://classic.yarnpkg.com/) or [npm](https://www.npmjs.com/)
+
+
+### Create account on the following services
+
+This service requires a GitHub token to carry out more than 5000 requests per hour, 
+otherwise there will be only 60 requests per given period. This token must be placed 
+as an environment variable in the env.local file located in the root directory.
+
+- [GitHub](https://github.com//settings/tokens)
+
+<p align="center">
+<img alt="Screen06" src="https://res.cloudinary.com/dvargas42/image/upload/v1621917278/thegitsearch/github-token_spqpgo.png" width="400px">
+</p>
+
+### Clone the project and access the folder
+
+```bash
+$ git clone git clone https://dvargas42@bitbucket.org/paytimevix1/desafio-frontend.git
 ```
 
-### Dados modal
+### Follow the steps below**
 
-Para fazer a consulta dos dados de um usuario basta pegar o item que usuario selecionou e nos dados recebidos pela pesquisa tera um item no objeto com o nome de url faça uma requisição neste enpoint.
-
---Endpoint Exemplo: curl https://api.github.com/users/stolato
---MEHTOD: GET
-
-Retorno: 
+Install the dependencies
+```bash
+$ yarn
 ```
-{
-  "login": "stolato",
-  "id": 1437461,
-  "node_id": "MDQ6VXNlcjE0Mzc0NjE=",
-  "avatar_url": "https://avatars3.githubusercontent.com/u/1437461?v=4",
-  "gravatar_id": "",
-  "url": "https://api.github.com/users/stolato",
-  "html_url": "https://github.com/stolato",
-  "followers_url": "https://api.github.com/users/stolato/followers",
-  "following_url": "https://api.github.com/users/stolato/following{/other_user}",
-  "gists_url": "https://api.github.com/users/stolato/gists{/gist_id}",
-  "starred_url": "https://api.github.com/users/stolato/starred{/owner}{/repo}",
-  "subscriptions_url": "https://api.github.com/users/stolato/subscriptions",
-  "organizations_url": "https://api.github.com/users/stolato/orgs",
-  "repos_url": "https://api.github.com/users/stolato/repos",
-  "events_url": "https://api.github.com/users/stolato/events{/privacy}",
-  "received_events_url": "https://api.github.com/users/stolato/received_events",
-  "type": "User",
-  "site_admin": false,
-  "name": "Luiz Carlos Rosestolato Junior",
-  "company": null,
-  "blog": "stolato.com.br",
-  "location": null,
-  "email": null,
-  "hireable": null,
-  "bio": null,
-  "twitter_username": null,
-  "public_repos": 3,
-  "public_gists": 0,
-  "followers": 1,
-  "following": 2,
-  "created_at": "2012-02-14T18:02:59Z",
-  "updated_at": "2020-06-18T05:00:10Z"
-}
+To finish, run the webapp 
+```bash
+$ yarn dev
 ```
 
-## Diferenciais
+Well done, project is started!
 
-- Melhoria no estilo da aplicação
-- Organização do código
+## 🤔 How to contribute
 
-## Como submeter?
 
-- Commite suas alterações de forma organizada
-- Você deve criar um fork deste repositorio desafio, ao terminar todo o desafio você devera abrir um "Pull Request" deste Fork.
+**Follow the steps below**
+
+```bash
+# Clone your fork
+$ git clone your-fork-url && cd desafio-frontend
+# Create a branch with your feature
+$ git checkout -b my-feature
+
+# Make the commit with your changes
+$ git commit -m "My new feature"
+
+# Send the code to your remote branch
+$ git push origin my-feature
+```
+
+After your pull request is merged, you can delete your branch
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Made with 💜 &nbsp;by Daniel Vargas 👋 &nbsp;[See my linkedin](https://www.linkedin.com/in/daniel-santos-040983ab/)
