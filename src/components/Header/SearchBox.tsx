@@ -5,12 +5,12 @@ import { useSearchData } from '../../hooks/useSearchData'
 import styles from './searchBox.module.scss'
 
 export function SearchBox() {
-  const { handleSearch } = useSearchData()
+  const { handleRequest  } = useSearchData()
   const [search, setSearch] = useState<string>('')
 
-  function handleSearchInput() {
+  function handleRequestInput() {
     if (search) {
-      handleSearch(search)
+      handleRequest(search)
       setSearch('')
     }
   }
@@ -26,7 +26,7 @@ export function SearchBox() {
       <Link href={search ? `/results/${search}`: ''}>
         <button
           type='button'
-          onClick={handleSearchInput}
+          onClick={handleRequestInput}
         >
           <img src="/images/Magnifier.svg" alt="Lupa" />
         </button>
