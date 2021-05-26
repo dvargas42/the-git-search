@@ -6,6 +6,27 @@
   NextJS Application for GitHub search.
 </h3>
 
+<p align="center">
+
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/dvargas42/the-git-search?color=blue">
+
+  <a href="https://www.linkedin.com/in/daniel-santos-040983ab/" target="_blank" rel="noopener noreferrer">
+    <img alt="Made by" src="https://img.shields.io/badge/made%20by-Daniel%20Vargas-blue">
+  </a>
+
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/dvargas42/the-git-search?color=blue">
+
+  <a href="https://github.com/dvargas42/the-git-search/commits/main">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/dvargas42/the-git-search?color=blue">
+  </a>
+
+  <a href="https://github.com/dvargas42/the-git-search/issues">
+    <img alt="Repository issues" src="https://img.shields.io/github/issues/dvargas42/the-git-search?color=blue">
+  </a>
+
+  <img alt="GitHub" src="https://img.shields.io/github/license/dvargas42/rocketshoes?color=blue">
+</p>
+
 <p align="center">The best way to search GitHub users!</p>
 
 <p align="center">
@@ -71,14 +92,13 @@ as an environment variable in the env.local file located in the root directory.
 - [GitHub](https://github.com//settings/tokens)
 
 <p align="center">
-<img alt="Screen06" src="https://res.cloudinary.com/dvargas42/image/upload/v1621917278/thegitsearch/github-token_spqpgo.png" width="400px">
+<img alt="Screen06" src="https://res.cloudinary.com/dvargas42/image/upload/v1621917278/thegitsearch/github-token_spqpgo.png" width="500px">
 </p>
 
 ### Clone the project and access the folder
 
 ```bash
-$ git clone git clone https://dvargas42@bitbucket.org/paytimevix1/desafio-frontend.git
-```
+$ git clone https://github.com/dvargas42/the-git-search.git
 
 ### Follow the steps below**
 
