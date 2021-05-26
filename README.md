@@ -121,7 +121,7 @@ Well done, project is started!
 
 ```bash
 # Clone your fork
-$ git clone your-fork-url && cd desafio-frontend
+$ git clone your-fork-url && cd the-git-search
 # Create a branch with your feature
 $ git checkout -b my-feature
 
