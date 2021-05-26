@@ -17,10 +17,9 @@ interface UserProps {
 
 interface ItemData {
   item: UserProps;
-  key: number;
 }
 
-export function UserCard({ item, key } : ItemData) {
+export function UserCard({ item } : ItemData) {
   const { toggleUserModal, handleUser } = useSearchData()
 
   function lengthVerify(field: string) {
@@ -37,7 +36,7 @@ export function UserCard({ item, key } : ItemData) {
   }
 
   return (
-    <li key={key} className={styles.cardContainer}> 
+    <li key={item.id} className={styles.cardContainer}> 
       <img src={item.avatar_url} alt="avatar" />
 
       <div className={styles.cardContent}>
