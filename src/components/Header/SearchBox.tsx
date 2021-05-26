@@ -1,16 +1,18 @@
 import { useState } from 'react'
-import Link from 'next/link'
+import Router from 'next/router'
 import { useSearchData } from '../../hooks/useSearchData'
 
 import styles from './searchBox.module.scss'
 
 export function SearchBox() {
-  const { handleRequest  } = useSearchData()
   const [search, setSearch] = useState<string>('')
+
+  const { handleRequest  } = useSearchData()
 
   function handleRequestInput() {
     if (search) {
       handleRequest(search)
+      Router.push(`/results/${search}`)
       setSearch('')
     }
   }
@@ -22,15 +24,16 @@ export function SearchBox() {
         placeholder="Pesquisar"
         value={search}
         onChange={event => setSearch(event.target.value)}
+        onKeyPress={event => (
+          event.key === 'Enter' && handleRequestInput())
+      }
       />
-      <Link href={search ? `/results/${search}`: ''}>
-        <button
-          type='button'
-          onClick={handleRequestInput}
-        >
-          <img src="/images/Magnifier.svg" alt="Lupa" />
-        </button>
-      </Link>
+      <button
+        type='button'
+        onClick={handleRequestInput}
+      >
+        <img src="/images/Magnifier.svg" alt="Lupa" />
+      </button>
     </label>
   )
 }
