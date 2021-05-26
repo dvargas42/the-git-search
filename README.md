@@ -99,6 +99,7 @@ as an environment variable in the env.local file located in the root directory.
 
 ```bash
 $ git clone https://github.com/dvargas42/the-git-search.git
+```
 
 ### Follow the steps below**
 
