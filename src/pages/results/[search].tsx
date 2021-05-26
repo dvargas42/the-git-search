@@ -8,7 +8,6 @@ import { UserCard } from "../../components/UserCard";
 import { DateFormat, NumberFormat } from '../../utils/format'
 
 import styles from './results.module.scss'
-import Link from "next/link";
 
 interface userProps {
   id: number;
@@ -76,7 +75,7 @@ async function SearchData (
 
 export default function Results({ data, total_count, search }: DataProps) {
   const [searchData, setSearchData] = useState<SearchProps[]>(data)
-  const [nextPage, setNextPage] = useState(1)
+  const [nextPage, setNextPage] = useState(2)
 
   const { request, isOpenModal, toggleUserModal } = useSearchData()
   
@@ -84,9 +83,6 @@ export default function Results({ data, total_count, search }: DataProps) {
   
   useEffect(()=> {
     setSearchData(data)
-    
-    if (totalPages > 1)
-      setNextPage(2)    
   }, [data])
 
   async function handleNextPage() {
